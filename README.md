@@ -17,24 +17,26 @@ CD into the testmachineautomation directory
 Make sure the access configuration file exists by copying the .user-access-config.ex.yml to .user-access-config.yml
 * cp .user-access-config.ex.yml .user-access-config.yml
 
-Modify the user details to match you settings with either VIM or nano etc
+Modify the user details to match your settings with either VIM or nano etc
 * vim .user-access-config.yml
 
 Make sure repositories required are correctly configured by modifying the 
 * REPO_USER_NAME and 
 * REPO_PASSWORD 
 
-to your repo's access credentials which can permit you clone
+to your repo's(git) access credentials which can permit you clone
 
 Modify 
-* REPOSITORY_NAME (Main repository), 
+* Crete a repo and replace the REPOSITORY_NAME to your newly created repo and remove "https://" on the https cloned url
+Delete
 * PIPELINE_ONE_REPO, 
 * PIPELINE_TWO_REPO, 
 * PIPELINE_THREE_REPO, 
-* Delete any of the parameters which are not necessary and make sure you delete those on the playbook.yml steps as well as in the base-config.xml file with all reference to them.
+
 
 Configure Steps per pipeline
-* Look in the base-config.xml file and configure the different stages in each of the pipelines. There are dummy examples for executing commands in the "dummy_configs.xml" file thanks to the team at ThoughtWorks Studios.
+Look in the base-config.xml file 
+* Delete <pipeline> tags all 3 of them and DO NOT DELETE the <pipelines> tag 
 
 Build virtual machine (Make sure nothing else is running on port 9001):
 * vagrant up
